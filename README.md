@@ -1,0 +1,4 @@
+django-encyclopaedia
+====================
+
+Encyclopaedia
