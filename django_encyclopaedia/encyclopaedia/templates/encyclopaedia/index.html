@@ -1,0 +1,9 @@
+{% if sections %}
+    <ul>
+    {% for section in sections %}
+        <li><a href="{% url 'section' section %}">{{ section }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No articles!=(</p>
+{% endif %}
