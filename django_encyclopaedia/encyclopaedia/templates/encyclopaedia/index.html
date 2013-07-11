@@ -1,7 +1,13 @@
 {% if sections %}
     <ul>
-    {% for section in sections %}
-        <li><a href="{% url 'section' section %}">{{ section }}</a></li>
+    {% for section, articles in sections %}
+        <li><a href="{% url 'section' section %}"><b>{{ section }}</b></a>
+        	<ul>
+        	{% for article in articles %}
+        		<li><a href="{% url 'article' article.id %}">{{ article.name }}</a></li>
+        	{% endfor %}
+        	</ul>
+        </li>
     {% endfor %}
     </ul>
 {% else %}
