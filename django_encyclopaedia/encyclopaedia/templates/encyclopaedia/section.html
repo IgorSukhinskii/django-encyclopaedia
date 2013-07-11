@@ -1,9 +1,17 @@
+{% extends "encyclopaedia/base.html" %}
+
+{% block title %}
+Раздел {{ letter }}
+{% endblock title %}
+
+{% block body %}
 {% if articles %}
     <ul>
     {% for article in articles %}
-        <li><a href="{% url 'article' article.id %}">{{ article.name }}</a></li>
+        <li><a href="{% url 'article-detail' article.id %}">{{ article.name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No articles!=(</p>
 {% endif %}
+{% endblock body %}

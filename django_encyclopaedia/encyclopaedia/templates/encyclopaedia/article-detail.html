@@ -1,0 +1,15 @@
+{% extends "encyclopaedia/base.html" %}
+
+{% block title %}
+  {{ object.name }}
+{% endblock title %}
+
+{% block nav-other %}
+  <li><a href="{% url 'article-update' object.id %}">Редактировать</a></li>
+  <li><a href="{% url 'article-delete' object.id %}">Удалить</a></li>
+{% endblock nav-other %}
+
+{% block body %}
+  <h2>{{ object.name }}</h2>
+  <p>{{ object.text }}</p>
+{% endblock body %}

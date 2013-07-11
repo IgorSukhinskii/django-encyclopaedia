@@ -1,0 +1,13 @@
+{% extends 'encyclopaedia/base.html' %}
+
+{% block title %}
+  Подтвердите удаление
+{% endblock title %}
+
+{% block body %}
+<form action="" method="post">
+  {% csrf_token %}
+  <p>Вы уверены, что хотите удалить "{{ object }}"?</p>
+  <input type="submit" value="Да" />
+</form>
+{% endblock body %}

@@ -1,15 +1,38 @@
-{% if sections %}
-    <ul>
-    {% for section, articles in sections %}
-        <li><a href="{% url 'section' section %}"><b>{{ section }}</b></a>
-        	<ul>
-        	{% for article in articles %}
-        		<li><a href="{% url 'article' article.id %}">{{ article.name }}</a></li>
-        	{% endfor %}
-        	</ul>
-        </li>
-    {% endfor %}
-    </ul>
+{% extends "encyclopaedia/base.html" %}
+
+{% block title %}
+Заглавная страница
+{% endblock title %}
+
+{% block nav-index %}
+{% endblock nav-index %}
+
+{% block nav-other %}
+<li><a href="{% url 'article-create' %}">Добавить</a></li>
+{% endblock nav-other %}
+
+{% block body %}
+{% if groups %}
+    <div class="row">
+        {% for sections in groups %}
+            <div class="span3">
+            {% if sections %}
+                <ul>
+                {% for section, articles in sections %}
+                    <li><a href="{% url 'section' section %}"><b>{{ section }}</b></a>
+        	           <ul>
+        	           {% for article in articles %}
+        		          <li><a href="{% url 'article-detail' article.id %}">{{ article.name }}</a></li>
+        	           {% endfor %}
+        	           </ul>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+            </div>
+        {% endfor %}
+    </div>
 {% else %}
     <p>No articles!=(</p>
 {% endif %}
+{% endblock body %}
