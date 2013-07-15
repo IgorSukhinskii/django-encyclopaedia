@@ -4,7 +4,6 @@ from django.shortcuts import render, get_object_or_404
 from encyclopaedia.models import Article
 from itertools import groupby
 from collections import defaultdict
-from encyclopaedia.forms import ArticleForm
 from django.http import HttpResponseRedirect
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from django.core.urlresolvers import reverse_lazy
