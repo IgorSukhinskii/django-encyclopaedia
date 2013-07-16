@@ -36,9 +36,6 @@ def index(request):
         'groups' : groups,
         })
 
-#class Section(ListView):
-#    queryset = Article.objects.filter(name__startswith=letter)
-
 def section(request, letter):
     q1 = Article.objects.filter(name__startswith=letter)
 
